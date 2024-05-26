@@ -8,15 +8,16 @@ namespace EmployeeManagement
 {
     public partial class MainForm : Form
     {
-        private SQLiteConnection connection;
-        private SQLiteDataAdapter adapter;
-        private DataSet dataSet;
+        private SQLiteConnection connection; // Connection to the SQLite database
+        private SQLiteDataAdapter adapter; // Adapter to manage the data exchange between database and DataSet
+        private DataSet dataSet; // DataSet to hold the data fetched from the database
 
         public MainForm()
         {
             InitializeComponent();
             InitializeDatabase();
 
+            // Setting placeholder text for textboxes
             SetPlaceholderText(txtFirstName, "First Name");
             SetPlaceholderText(txtLastName, "Last Name");
             SetPlaceholderText(txtPosition, "Position");
@@ -25,6 +26,7 @@ namespace EmployeeManagement
             SetPlaceholderText(txtDepartmentIDForReport, "Department ID");
         }
 
+        // Initializes the SQLite database connection and creates the Employees table if it does not exist
         private void InitializeDatabase()
         {
             connection = new SQLiteConnection("Data Source=employees.db;Version=3;");
@@ -43,6 +45,7 @@ namespace EmployeeManagement
             command.ExecuteNonQuery();
         }
 
+        // Event handler for adding a new employee to the database
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             string query = "INSERT INTO Employees (FirstName, LastName, Position, DepartmentID, HireDate) VALUES (@FirstName, @LastName, @Position, @DepartmentID, @HireDate)";
@@ -56,6 +59,7 @@ namespace EmployeeManagement
             MessageBox.Show("Employee added successfully.");
         }
 
+        // Event handler for searching employees in the database based on the search criteria
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string query = "SELECT * FROM Employees WHERE FirstName LIKE @Search OR LastName LIKE @Search OR Position LIKE @Search OR DepartmentID LIKE @Search";
@@ -66,6 +70,7 @@ namespace EmployeeManagement
             dataGridView1.DataSource = dataSet.Tables["Employees"];
         }
 
+        // Event handler for generating a report based on the department ID
         private void btnReportByDepartment_Click(object sender, EventArgs e)
         {
             string query = "SELECT * FROM Employees WHERE DepartmentID = @DepartmentID";
@@ -76,6 +81,7 @@ namespace EmployeeManagement
             dataGridView1.DataSource = dataSet.Tables["Employees"];
         }
 
+        // Event handler for generating a report based on the hire date
         private void btnReportByHireDate_Click(object sender, EventArgs e)
         {
             string query = "SELECT * FROM Employees WHERE HireDate >= @HireDate";
@@ -86,6 +92,7 @@ namespace EmployeeManagement
             dataGridView1.DataSource = dataSet.Tables["Employees"];
         }
 
+        // Method to set placeholder text in TextBox controls
         private void SetPlaceholderText(TextBox textBox, string placeholder)
         {
             textBox.Text = placeholder;
