@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtPosition = new System.Windows.Forms.TextBox();
@@ -28,6 +29,7 @@
             this.dtpHireDateForReport = new System.Windows.Forms.DateTimePicker();
             this.btnReportByHireDate = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -35,35 +37,35 @@
             // 
             this.txtFirstName.Location = new System.Drawing.Point(12, 12);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(100, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(100, 22);
             this.txtFirstName.TabIndex = 0;
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(12, 38);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(100, 20);
+            this.txtLastName.Size = new System.Drawing.Size(100, 22);
             this.txtLastName.TabIndex = 1;
             // 
             // txtPosition
             // 
             this.txtPosition.Location = new System.Drawing.Point(12, 64);
             this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(100, 20);
+            this.txtPosition.Size = new System.Drawing.Size(100, 22);
             this.txtPosition.TabIndex = 2;
             // 
             // txtDepartmentID
             // 
             this.txtDepartmentID.Location = new System.Drawing.Point(12, 90);
             this.txtDepartmentID.Name = "txtDepartmentID";
-            this.txtDepartmentID.Size = new System.Drawing.Size(100, 20);
+            this.txtDepartmentID.Size = new System.Drawing.Size(100, 22);
             this.txtDepartmentID.TabIndex = 3;
             // 
             // dtpHireDate
             // 
             this.dtpHireDate.Location = new System.Drawing.Point(12, 116);
             this.dtpHireDate.Name = "dtpHireDate";
-            this.dtpHireDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpHireDate.Size = new System.Drawing.Size(200, 22);
             this.dtpHireDate.TabIndex = 4;
             // 
             // btnAddEmployee
@@ -80,7 +82,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(12, 171);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 20);
+            this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 6;
             // 
             // btnSearch
@@ -97,7 +99,7 @@
             // 
             this.txtDepartmentIDForReport.Location = new System.Drawing.Point(12, 197);
             this.txtDepartmentIDForReport.Name = "txtDepartmentIDForReport";
-            this.txtDepartmentIDForReport.Size = new System.Drawing.Size(100, 20);
+            this.txtDepartmentIDForReport.Size = new System.Drawing.Size(100, 22);
             this.txtDepartmentIDForReport.TabIndex = 8;
             // 
             // btnReportByDepartment
@@ -114,7 +116,7 @@
             // 
             this.dtpHireDateForReport.Location = new System.Drawing.Point(12, 223);
             this.dtpHireDateForReport.Name = "dtpHireDateForReport";
-            this.dtpHireDateForReport.Size = new System.Drawing.Size(200, 20);
+            this.dtpHireDateForReport.Size = new System.Drawing.Size(200, 22);
             this.dtpHireDateForReport.TabIndex = 10;
             // 
             // btnReportByHireDate
@@ -132,12 +134,24 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 249);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(360, 150);
             this.dataGridView1.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 437);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "© 2024 Tolia Driapak";
+            // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(384, 411);
+            this.ClientSize = new System.Drawing.Size(425, 465);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnReportByHireDate);
             this.Controls.Add(this.dtpHireDateForReport);
@@ -151,11 +165,13 @@
             this.Controls.Add(this.txtPosition);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Employee Management";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.TextBox txtFirstName;
@@ -171,5 +187,6 @@
         private System.Windows.Forms.DateTimePicker dtpHireDateForReport;
         private System.Windows.Forms.Button btnReportByHireDate;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
     }
 }
